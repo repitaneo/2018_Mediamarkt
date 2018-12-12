@@ -2,6 +2,7 @@ package mediamarkt;
 
 public class Electrodomestico {
 
+	private String id;
 	private char claseEnergetica;
 	private float peso;
 	private float precio;
@@ -13,7 +14,8 @@ public class Electrodomestico {
 	
 	
 	
-	public Electrodomestico(char claseEnergetica, 
+	public Electrodomestico(String id,
+							char claseEnergetica, 
 							float peso, 
 							float precio, 
 							float consumo, 
@@ -22,6 +24,7 @@ public class Electrodomestico {
 							String modelo) {
 		
 
+		this.id = id;
 		this.claseEnergetica = claseEnergetica;
 		this.peso = peso;
 		this.precio = precio;
@@ -29,7 +32,22 @@ public class Electrodomestico {
 		this.color = color;
 		this.marca = marca;
 		this.modelo = modelo;
-	}	
+	}
+	
+	
+	
+	public Electrodomestico(Electrodomestico otro,
+							String id) {
+		
+		this.id = id;
+		this.claseEnergetica = otro.claseEnergetica;
+		this.peso = otro.peso;
+		this.precio = otro.precio;
+		this.consumo = otro.consumo;
+		this.color = otro.color;
+		this.marca = otro.marca;
+		this.modelo = otro.modelo;		
+	}
 	
 	
 	
@@ -63,7 +81,11 @@ public class Electrodomestico {
 	
 	
 	
-	
+	/**
+	 * Calcula el precio del electrodoméstico con 
+	 * IVA y envío
+	 * @return el precio total del electrodomestico
+	 */
 	public float precioTotal() {
 		
 		float precio = 0;
@@ -135,14 +157,26 @@ public class Electrodomestico {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}	
 	
 	
 	@Override
 	public String toString() {
-		return "Electrodomestico [claseEnergetica=" + claseEnergetica + ", peso=" + peso + ", precio=" + precio
-				+ ", consumo=" + consumo + ", color=" + color + ", marca=" + marca + ", modelo=" + modelo + "]";
+		return "[color=" + color + 
+				", marca=" + marca + 
+				", modelo=" + modelo + 
+				", precioEnvio()="+ precioEnvio()+
+				", precioTotal()=" +precioTotal()+"]";
 	}
+
+
+
+
 	
 	
 	
