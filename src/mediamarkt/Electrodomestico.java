@@ -2,14 +2,14 @@ package mediamarkt;
 
 public class Electrodomestico {
 
-	char claseEnergetica;
-	float peso;
-	float precio;
-	float consumo;
+	private char claseEnergetica;
+	private float peso;
+	private float precio;
+	private float consumo;
 	
-	String color;
-	String marca;
-	String modelo;
+	private String color;
+	private String marca;
+	private String modelo;
 	
 	
 	
@@ -62,6 +62,20 @@ public class Electrodomestico {
 	
 	
 	
+	
+	
+	public float precioTotal() {
+		
+		float precio = 0;
+		int precioDelEnvio = precioEnvio();
+		
+		precio = this.precio + 
+				(this.precio*0.21f) + 
+				precioDelEnvio;      
+		
+		return precio;
+		
+	}
 	
 	
 	

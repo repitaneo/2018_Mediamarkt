@@ -7,9 +7,13 @@ public class Start {
 
 		
 		Electrodomestico lavadora;
-		lavadora = new Electrodomestico('A', 50f, 
+		lavadora = new Electrodomestico('A', 51, 
 			355, 0.74f,"Rojo","Siemens","M35plus");
 
+		
+		System.out.println(lavadora.precioTotal());
+		
+		
 	}
 
 }
